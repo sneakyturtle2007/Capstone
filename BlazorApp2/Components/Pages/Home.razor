@@ -1,0 +1,62 @@
+﻿@page "/"
+@rendermode InteractiveServer
+<PageTitle>Home pages</PageTitle>
+
+<h1>You did great!!!!</h1>
+
+Welcome to your new app.
+@{
+    int amount = RandInt(10);
+    
+}
+<button class="btn btn-primary btn-block" @onclick="DisplayDate">What's today?</button>
+
+@if (showDate){
+    <p>@DateTime.Now</p>
+}else{
+    <p>Who cares?</p>
+}
+<button class="btn btn-primary btn-block" @onclick="ChangeDisplayedAlphabet" >Alphabet</button>
+<ol>
+    @if( showAlphabet){
+        @for (int i = 0; i < max; i++){
+            <li>@alphabet[i]</li>
+        }
+    }
+</ol>
+
+@code {
+    bool showDate = false;
+    char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+    private int max;
+    private bool showAlphabet = false;
+    public Home(){
+        max = RandInt(26);
+    }
+    private int RandInt(int max){
+        return new Random().Next(1,max);
+    }
+    private void DisplayDate(){
+        showDate = true;
+    }
+    private void ChangeDisplayedAlphabet(){
+        max = RandInt(26);
+        showAlphabet = !showAlphabet;
+    }
+   
+}
+<Counter IncrementAmount="amount"/>    
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < @RandInt(10); i++){
+            <tr>
+                <td>@RandInt(50)</td>
+            </tr>
+        }
+    </tbody>
+</table>

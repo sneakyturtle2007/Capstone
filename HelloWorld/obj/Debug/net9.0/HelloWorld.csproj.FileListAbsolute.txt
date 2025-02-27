@@ -1,0 +1,14 @@
+/home/luis/Capstone/Blazor Tutorial/HelloWorld/bin/Debug/net9.0/HelloWorld
+/home/luis/Capstone/Blazor Tutorial/HelloWorld/bin/Debug/net9.0/HelloWorld.deps.json
+/home/luis/Capstone/Blazor Tutorial/HelloWorld/bin/Debug/net9.0/HelloWorld.runtimeconfig.json
+/home/luis/Capstone/Blazor Tutorial/HelloWorld/bin/Debug/net9.0/HelloWorld.dll
+/home/luis/Capstone/Blazor Tutorial/HelloWorld/bin/Debug/net9.0/HelloWorld.pdb
+/home/luis/Capstone/Blazor Tutorial/HelloWorld/obj/Debug/net9.0/HelloWorld.GeneratedMSBuildEditorConfig.editorconfig
+/home/luis/Capstone/Blazor Tutorial/HelloWorld/obj/Debug/net9.0/HelloWorld.AssemblyInfoInputs.cache
+/home/luis/Capstone/Blazor Tutorial/HelloWorld/obj/Debug/net9.0/HelloWorld.AssemblyInfo.cs
+/home/luis/Capstone/Blazor Tutorial/HelloWorld/obj/Debug/net9.0/HelloWorld.csproj.CoreCompileInputs.cache
+/home/luis/Capstone/Blazor Tutorial/HelloWorld/obj/Debug/net9.0/HelloWorld.dll
+/home/luis/Capstone/Blazor Tutorial/HelloWorld/obj/Debug/net9.0/refint/HelloWorld.dll
+/home/luis/Capstone/Blazor Tutorial/HelloWorld/obj/Debug/net9.0/HelloWorld.pdb
+/home/luis/Capstone/Blazor Tutorial/HelloWorld/obj/Debug/net9.0/HelloWorld.genruntimeconfig.cache
+/home/luis/Capstone/Blazor Tutorial/HelloWorld/obj/Debug/net9.0/ref/HelloWorld.dll
