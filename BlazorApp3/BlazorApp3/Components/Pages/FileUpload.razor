@@ -1,0 +1,149 @@
+@page "/fileupload"
+@rendermode InteractiveServer
+
+<PageTitle>Blazor Server File Upload</PageTitle>
+
+<h1>Blazor Server File Upload</h1>
+<h3>Reader Events: @readerEventsCount</h3>
+
+<div style="margin-bottom: 20px; display: flex;">
+    <div>Select your file:</div>
+    <InputFile OnChange="FileUploaded" />
+</div>
+
+<h2>Selected file</h2>
+<div>
+    <div>File name: @FileName</div>
+    <div>File size: @FileSize.ToString("n0") bytes</div>
+    <div>File type: @FileType</div>
+    <div>Last modified: @LastModified</div>
+</div>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div>Error: @ErrorMessage</div>
+}
+
+<table class="table table-striped">
+  <thead>
+      <tr>
+          <th>Event Time</th>
+          <th>Location</th>
+          <th>Reader Description</th>
+          <th>ID Hash</th>
+          <th>Dev ID</th>
+          <th>Machine</th>
+      </tr>
+  </thead>
+  <tbody>
+      @for (int i = 0; i < readerEvents.Count; i++){
+          <tr>
+              <th>@readerEvents[i].eventTime</th>
+              <th>@readerEvents[i].location</th>
+              <th>@readerEvents[i].readerDesc</th>
+              <th>@readerEvents[i].idHash</th>
+              <th>@readerEvents[i].devID</th>
+              <th>@readerEvents[i].machine</th>
+          </tr>
+      }
+  </tbody>
+</table>
+@code {
+    int readerEventsCount = 0;
+    private List<ReaderEvent> readerEvents = new List<ReaderEvent>();
+    
+    private Dictionary<string, ReaderEvent[]> eventsPerReader = new List<string, ReaderEvent[]>();
+    class ReaderEvent{
+        public string eventTime {get; set;}
+        public string location {get; set;}
+        public string readerDesc {get; set;}
+        public string idHash {get; set;}
+        public int devID {get; set;}
+        public int machine {get; set;}
+        
+        public ReaderEvent(){
+            this.eventTime = "0000-00-00";
+            this.location = "NONE";
+            this.readerDesc = "NONE";
+            this.idHash = "NONE";
+            this.devID = -1;
+            this.machine = -1;
+        }
+        public ReaderEvent(string eventTime, string location, string readerDesc, string idHash, int devID, int machine){
+            this.eventTime = eventTime;
+            this.location = location;
+            this.readerDesc = readerDesc;
+            this.idHash = idHash;
+            this.devID = devID;
+            this.machine = machine;
+        }
+    }
+    public string FileName { get; set; } = "";
+    public long FileSize { get; set; }
+    public string FileType { get; set; } = "";
+    public DateTimeOffset LastModified { get; set; }
+    public string ErrorMessage { get; set; } = "";
+
+    const int MAX_FILESIZE = 5000 * 1024; // 2 MB
+
+    public async Task FileUploaded(InputFileChangeEventArgs e)
+    {
+        var browserFile = e.File;
+
+        if (browserFile != null)
+        {
+            FileSize = browserFile.Size;
+            FileType = browserFile.ContentType;
+            FileName = browserFile.Name;
+            LastModified = browserFile.LastModified;
+
+            try
+            {
+                var fileStream = browserFile.OpenReadStream(MAX_FILESIZE);
+
+                
+                var extension = Path.GetExtension(FileName);
+                var targetFilePath = Path.ChangeExtension( FileName, extension);
+
+                var destinationStream = new FileStream(targetFilePath, FileMode.Create);
+                await fileStream.CopyToAsync(destinationStream);
+                destinationStream.Close();
+            }
+            catch (Exception exception)
+            {
+                ErrorMessage = exception.Message;
+            }
+
+            ReadFile(FileName);
+          
+        }
+    }
+    public async void ReadFile(string name){
+      //test = "Pass";
+      StreamReader reader = new StreamReader(name);
+      string line = reader.ReadLine();
+      line = reader.ReadLine();
+      string[] row;
+      while(line != null){
+          row = line.Split(",");
+          
+          readerEvents.Add(new ReaderEvent(row[0], row[1], row[2], row[3], Int32.Parse(row[4]), Int32.Parse(row[5]) ) );
+          line = reader.ReadLine();
+      }
+      readerEventsCount = readerEvents.Count;
+      this.StateHasChanged();
+
+    }
+    public Dictionary<string, List<ReaderEvent>> organizeEvents(List<ReaderEvent> totalEvents){
+        List<string> uniqueReaders = new List<string();
+        List<ReaderEvent> events = new List<ReaderEvent>();
+        string uniqueID;
+        foreach(ReaderEvent event in totalEvents){
+            uniqueID = event.devID + event.machine;
+            if(uniqueReaders.Count(uniqueID) > 0){
+              uniqueReaders.Push(uniqueID);
+            }
+        }
+    }
+
+}

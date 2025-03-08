@@ -156,3 +156,4 @@ C:/Users/Luis Blake/Desktop/School/Francis Tuttle/Capstone/Blazor Tutorial/Blazo
 /home/luis/Capstone/Blazor Tutorial/BlazorApp2/obj/Debug/net9.0/BlazorApp2.pdb
 /home/luis/Capstone/Blazor Tutorial/BlazorApp2/obj/Debug/net9.0/BlazorApp2.genruntimeconfig.cache
 /home/luis/Capstone/Blazor Tutorial/BlazorApp2/obj/Debug/net9.0/ref/BlazorApp2.dll
+/home/luis/Capstone/Blazor Tutorial/BlazorApp2/obj/Debug/net9.0/BlazorApp2.sourcelink.json

@@ -1,0 +1,40 @@
+﻿@page "/something"
+@rendermode InteractiveServer
+<h3>Friends (Count: @friends.Count)</h3>
+<span>Modify Friends &nbsp; <input type="checkbox" @bind="removing"/></span>
+<ul>
+    @foreach (var friend in friends){
+        
+        <li>@friend.name &nbsp;
+            @if (removing){
+                <span><button style="font: size 12px;" @onclick="@(()=> RemoveFriend(friend))">remove</button></span>
+            }    
+        </li>
+    }
+</ul>
+
+<input @bind="newFriend"/>
+
+<button @onclick="AddFriend">Add Friend</button>
+
+@code {
+    string newFriend = "";
+    List<Friend> friends = new List<Friend>();
+    bool removing = false;
+    void AddFriend(){
+        if(!string.IsNullOrWhiteSpace(newFriend)){
+            friends.Add(new Friend(newFriend));
+            newFriend = "";
+        }
+    }
+    void RemoveFriend(Friend friend){
+        friends.Remove(friend);
+    }
+    class Friend{
+        public string name { get; set; } = "John Doe";
+        public bool remove { get; set; } = false;
+        public Friend(string name){
+            this.name = name;
+        }
+    }
+}

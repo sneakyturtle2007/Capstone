@@ -12,3 +12,4 @@
 /home/luis/Capstone/Blazor Tutorial/HelloWorld/obj/Debug/net9.0/HelloWorld.pdb
 /home/luis/Capstone/Blazor Tutorial/HelloWorld/obj/Debug/net9.0/HelloWorld.genruntimeconfig.cache
 /home/luis/Capstone/Blazor Tutorial/HelloWorld/obj/Debug/net9.0/ref/HelloWorld.dll
+/home/luis/Capstone/Blazor Tutorial/HelloWorld/obj/Debug/net9.0/HelloWorld.sourcelink.json
