@@ -1107,19 +1107,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Luis Blake\\.nuget\\packages\\": {}
+    "/home/luis/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Luis Blake\\Desktop\\GitHub\\Capstone\\BlazorApp3\\BlazorApp3\\BlazorApp3.csproj",
+      "projectUniqueName": "/home/luis/Capstone/Blazor Tutorial/BlazorApp3/BlazorApp3/BlazorApp3.csproj",
       "projectName": "BlazorApp3",
-      "projectPath": "C:\\Users\\Luis Blake\\Desktop\\GitHub\\Capstone\\BlazorApp3\\BlazorApp3\\BlazorApp3.csproj",
-      "packagesPath": "C:\\Users\\Luis Blake\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Luis Blake\\Desktop\\GitHub\\Capstone\\BlazorApp3\\BlazorApp3\\obj\\",
+      "projectPath": "/home/luis/Capstone/Blazor Tutorial/BlazorApp3/BlazorApp3/BlazorApp3.csproj",
+      "packagesPath": "/home/luis/.nuget/packages/",
+      "outputPath": "/home/luis/Capstone/Blazor Tutorial/BlazorApp3/BlazorApp3/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Luis Blake\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/luis/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -1131,8 +1131,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\Luis Blake\\Desktop\\GitHub\\Capstone\\BlazorApp3\\BlazorApp3.Client\\BlazorApp3.Client.csproj": {
-              "projectPath": "C:\\Users\\Luis Blake\\Desktop\\GitHub\\Capstone\\BlazorApp3\\BlazorApp3.Client\\BlazorApp3.Client.csproj"
+            "/home/luis/Capstone/Blazor Tutorial/BlazorApp3/BlazorApp3.Client/BlazorApp3.Client.csproj": {
+              "projectPath": "/home/luis/Capstone/Blazor Tutorial/BlazorApp3/BlazorApp3.Client/BlazorApp3.Client.csproj"
             }
           }
         }
@@ -1177,7 +1177,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

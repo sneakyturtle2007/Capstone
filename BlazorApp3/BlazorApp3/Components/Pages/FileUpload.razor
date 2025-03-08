@@ -27,32 +27,25 @@
 <table class="table table-striped">
   <thead>
       <tr>
-          <th>Event Time</th>
-          <th>Location</th>
-          <th>Reader Description</th>
-          <th>ID Hash</th>
-          <th>Dev ID</th>
-          <th>Machine</th>
+          <th>Reader ID</th>
+          <th>Reader Name</th>
+          <th>Number of Events</th>
       </tr>
   </thead>
   <tbody>
-      @for (int i = 0; i < readerEvents.Count; i++){
+      @foreach (KeyValuePair<string, List<ReaderEvent>> pair in eventsPerReader){
           <tr>
-              <th>@readerEvents[i].eventTime</th>
-              <th>@readerEvents[i].location</th>
-              <th>@readerEvents[i].readerDesc</th>
-              <th>@readerEvents[i].idHash</th>
-              <th>@readerEvents[i].devID</th>
-              <th>@readerEvents[i].machine</th>
+              <th>@pair.Key</th>
+              <th>@pair.Value[0].readerDesc</th>
+              <th>@pair.Value.Count</th>
           </tr>
       }
   </tbody>
 </table>
 @code {
     int readerEventsCount = 0;
-    private List<ReaderEvent> readerEvents = new List<ReaderEvent>();
-    
-    Dictionary<string, ReaderEvent[]> eventsPerReader = new Dictionary<string, ReaderEvent[]>();
+    List<ReaderEvent> readerEvents = new List<ReaderEvent>();
+    Dictionary<string, List<ReaderEvent>> eventsPerReader = new Dictionary<string, List<ReaderEvent>>();
     class ReaderEvent{
         public string eventTime {get; set;}
         public string location {get; set;}
@@ -115,6 +108,7 @@
             }
 
             ReadFile(FileName);
+            eventsPerReader = organizeEvents(readerEvents);
           
         }
     }
@@ -134,17 +128,20 @@
         this.StateHasChanged();
 
     }
-    Dictionary<string, ReaderEvent[]> organizeEvents(List<ReaderEvent> totalEvents){
-        Dictionary<string, ReaderEvent[]> eventsPerReader = new Dictionary<string, ReaderEvent[]>();
+    Dictionary<string, List<ReaderEvent>> organizeEvents(List<ReaderEvent> totalEvents){
+        Dictionary<string, List<ReaderEvent>> eventsPerReader = new Dictionary<string, List<ReaderEvent>>();
         string uniqueID = "";
         foreach(ReaderEvent temp in totalEvents){
             uniqueID = temp.devID.ToString() + temp.machine.ToString();
             if(!eventsPerReader.ContainsKey(uniqueID)){
-                eventsPerReader.Add(uniqueID, new ReaderEvent[1]{temp});
+                List<ReaderEvent> events = new List<ReaderEvent>();
+                events.Add(temp);
+                eventsPerReader.Add(uniqueID, events);
             }else{
-                eventsPerReader[uniqueID].Append(temp);
+                eventsPerReader[uniqueID].Add(temp);
             }
         }
+        
         return eventsPerReader;
     }
 
