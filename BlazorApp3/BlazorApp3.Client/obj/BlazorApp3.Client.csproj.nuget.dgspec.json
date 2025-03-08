@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/luis/Capstone/Blazor Tutorial/BlazorApp3/BlazorApp3.Client/BlazorApp3.Client.csproj": {}
+    "C:\\Users\\Luis Blake\\Desktop\\GitHub\\Capstone\\BlazorApp3\\BlazorApp3.Client\\BlazorApp3.Client.csproj": {}
   },
   "projects": {
-    "/home/luis/Capstone/Blazor Tutorial/BlazorApp3/BlazorApp3.Client/BlazorApp3.Client.csproj": {
+    "C:\\Users\\Luis Blake\\Desktop\\GitHub\\Capstone\\BlazorApp3\\BlazorApp3.Client\\BlazorApp3.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/luis/Capstone/Blazor Tutorial/BlazorApp3/BlazorApp3.Client/BlazorApp3.Client.csproj",
+        "projectUniqueName": "C:\\Users\\Luis Blake\\Desktop\\GitHub\\Capstone\\BlazorApp3\\BlazorApp3.Client\\BlazorApp3.Client.csproj",
         "projectName": "BlazorApp3.Client",
-        "projectPath": "/home/luis/Capstone/Blazor Tutorial/BlazorApp3/BlazorApp3.Client/BlazorApp3.Client.csproj",
-        "packagesPath": "/home/luis/.nuget/packages/",
-        "outputPath": "/home/luis/Capstone/Blazor Tutorial/BlazorApp3/BlazorApp3.Client/obj/",
+        "projectPath": "C:\\Users\\Luis Blake\\Desktop\\GitHub\\Capstone\\BlazorApp3\\BlazorApp3.Client\\BlazorApp3.Client.csproj",
+        "packagesPath": "C:\\Users\\Luis Blake\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Luis Blake\\Desktop\\GitHub\\Capstone\\BlazorApp3\\BlazorApp3.Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/luis/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Luis Blake\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -83,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

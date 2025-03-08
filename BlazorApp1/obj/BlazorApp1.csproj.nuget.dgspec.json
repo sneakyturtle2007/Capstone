@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/luis/Capstone/Blazor Tutorial/BlazorApp1/BlazorApp1.csproj": {}
+    "C:\\Users\\Luis Blake\\Desktop\\GitHub\\Capstone\\BlazorApp1\\BlazorApp1.csproj": {}
   },
   "projects": {
-    "/home/luis/Capstone/Blazor Tutorial/BlazorApp1/BlazorApp1.csproj": {
+    "C:\\Users\\Luis Blake\\Desktop\\GitHub\\Capstone\\BlazorApp1\\BlazorApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/luis/Capstone/Blazor Tutorial/BlazorApp1/BlazorApp1.csproj",
+        "projectUniqueName": "C:\\Users\\Luis Blake\\Desktop\\GitHub\\Capstone\\BlazorApp1\\BlazorApp1.csproj",
         "projectName": "BlazorApp1",
-        "projectPath": "/home/luis/Capstone/Blazor Tutorial/BlazorApp1/BlazorApp1.csproj",
-        "packagesPath": "/home/luis/.nuget/packages/",
-        "outputPath": "/home/luis/Capstone/Blazor Tutorial/BlazorApp1/obj/",
+        "projectPath": "C:\\Users\\Luis Blake\\Desktop\\GitHub\\Capstone\\BlazorApp1\\BlazorApp1.csproj",
+        "packagesPath": "C:\\Users\\Luis Blake\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Luis Blake\\Desktop\\GitHub\\Capstone\\BlazorApp1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/luis/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Luis Blake\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -62,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

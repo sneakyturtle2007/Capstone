@@ -52,7 +52,7 @@
     int readerEventsCount = 0;
     private List<ReaderEvent> readerEvents = new List<ReaderEvent>();
     
-    private Dictionary<string, ReaderEvent[]> eventsPerReader = new List<string, ReaderEvent[]>();
+    Dictionary<string, ReaderEvent[]> eventsPerReader = new Dictionary<string, ReaderEvent[]>();
     class ReaderEvent{
         public string eventTime {get; set;}
         public string location {get; set;}
@@ -78,13 +78,13 @@
             this.machine = machine;
         }
     }
-    public string FileName { get; set; } = "";
-    public long FileSize { get; set; }
-    public string FileType { get; set; } = "";
-    public DateTimeOffset LastModified { get; set; }
-    public string ErrorMessage { get; set; } = "";
+    string FileName { get; set; } = "";
+    long FileSize { get; set; }
+    string FileType { get; set; } = "";
+    DateTimeOffset LastModified { get; set; }
+    string ErrorMessage { get; set; } = "";
 
-    const int MAX_FILESIZE = 5000 * 1024; // 2 MB
+    int MAX_FILESIZE = 5000 * 1024; // 2 MB
 
     public async Task FileUploaded(InputFileChangeEventArgs e)
     {
@@ -119,31 +119,33 @@
         }
     }
     public async void ReadFile(string name){
-      //test = "Pass";
-      StreamReader reader = new StreamReader(name);
-      string line = reader.ReadLine();
-      line = reader.ReadLine();
-      string[] row;
-      while(line != null){
-          row = line.Split(",");
-          
-          readerEvents.Add(new ReaderEvent(row[0], row[1], row[2], row[3], Int32.Parse(row[4]), Int32.Parse(row[5]) ) );
-          line = reader.ReadLine();
-      }
-      readerEventsCount = readerEvents.Count;
-      this.StateHasChanged();
+        //test = "Pass";
+        StreamReader reader = new StreamReader(name);
+        string? line = reader.ReadLine();
+        line = reader.ReadLine();
+        string[] row;
+        while(line != null){
+            row = line.Split(",");
+
+            readerEvents.Add(new ReaderEvent(row[0], row[1], row[2], row[3], Int32.Parse(row[4]), Int32.Parse(row[5]) ) );
+            line = reader.ReadLine();
+        }
+        readerEventsCount = readerEvents.Count;
+        this.StateHasChanged();
 
     }
-    public Dictionary<string, List<ReaderEvent>> organizeEvents(List<ReaderEvent> totalEvents){
-        List<string> uniqueReaders = new List<string();
-        List<ReaderEvent> events = new List<ReaderEvent>();
-        string uniqueID;
-        foreach(ReaderEvent event in totalEvents){
-            uniqueID = event.devID + event.machine;
-            if(uniqueReaders.Count(uniqueID) > 0){
-              uniqueReaders.Push(uniqueID);
+    Dictionary<string, ReaderEvent[]> organizeEvents(List<ReaderEvent> totalEvents){
+        Dictionary<string, ReaderEvent[]> eventsPerReader = new Dictionary<string, ReaderEvent[]>();
+        string uniqueID = "";
+        foreach(ReaderEvent temp in totalEvents){
+            uniqueID = temp.devID.ToString() + temp.machine.ToString();
+            if(!eventsPerReader.ContainsKey(uniqueID)){
+                eventsPerReader.Add(uniqueID, new ReaderEvent[1]{temp});
+            }else{
+                eventsPerReader[uniqueID].Append(temp);
             }
         }
+        return eventsPerReader;
     }
 
 }
